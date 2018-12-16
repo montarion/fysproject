@@ -13,6 +13,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -88,12 +91,15 @@ public class Servlet extends HttpServlet {
     String firstName = "null";
     String lastName = "null";
     String ticketNumber = "";
+    String ticketStatus = "";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String pattern = "(.*)=(.*)&(.*)=(.*)";
         String userdata = request.getReader().lines().collect(Collectors.joining());
 
+        //json stuff
+        JSONParser parser = new JSONParser();
 
         //create search pattern object
         Pattern r = Pattern.compile(pattern);
@@ -115,11 +121,25 @@ public class Servlet extends HttpServlet {
         String APIresult = RequestAPI(payload, "Ticket");
         System.out.println(APIresult);
 
+        try{
+            Object obj = parser.parse(APIresult);
+            JSONObject jsonobj = (JSONObject) obj;
+            System.out.println(obj);
+
+            ticketStatus = (String)jsonobj.get("ticketStatus");
+
+
+
+        }catch(ParseException pe){
+
+            System.out.println("position: " + pe.getPosition());
+            System.out.println(pe);
+        }
 
 
         // Laat ik erin als voorbeeld
         out.println("<script>");
-        out.println(String.format("console.log(\"%s\")", APIresult));
+        out.println(String.format("console.log(\"%s\")", ticketStatus));
         out.println("</script>");
 
 
