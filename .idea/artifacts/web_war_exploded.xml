@@ -7,6 +7,18 @@
         <element id="directory" name="classes">
           <element id="module-output" name="test3" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="D:/downloads/lib/jna-4.4.0.jar" />
+          <element id="file-copy" path="D:/downloads/lib/httpmime-4.5.6.jar" />
+          <element id="file-copy" path="D:/downloads/lib/fluent-hc-4.5.6.jar" />
+          <element id="file-copy" path="D:/downloads/lib/httpcore-4.4.10.jar" />
+          <element id="file-copy" path="D:/downloads/lib/httpclient-4.5.6.jar" />
+          <element id="file-copy" path="D:/downloads/lib/commons-codec-1.10.jar" />
+          <element id="file-copy" path="D:/downloads/lib/jna-platform-4.4.0.jar" />
+          <element id="file-copy" path="D:/downloads/lib/commons-logging-1.2.jar" />
+          <element id="file-copy" path="D:/downloads/lib/httpclient-win-4.5.6.jar" />
+          <element id="file-copy" path="D:/downloads/lib/httpclient-cache-4.5.6.jar" />
+        </element>
       </element>
     </root>
   </artifact>
