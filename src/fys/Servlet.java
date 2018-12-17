@@ -137,7 +137,7 @@ public class Servlet extends HttpServlet {
         }
 
 
-        // Laat ik erin als voorbeeld
+        // example of using the console
         out.println("<script>");
         out.println(String.format("console.log(\"%s\")", ticketStatus));
         out.println("</script>");
